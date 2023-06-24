@@ -1,0 +1,25 @@
+﻿@page
+@model SeneakerKop.Pages.snks.DetailsModel
+
+@{
+    var ImageTitle = "/images/pexels-aman-jakhar-2048548.jpg";
+}
+
+
+    <div class="card detailsContainer w-25" >
+        <img src="@ImageTitle" class="card-img-top w-100 h-25" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+        <div class="card-footer">
+        <a asp-page="./Edit" asp-route-id="@Model.Sneaker?.Id" class="btn btn-outline-primary">Edit</a> |
+        <a asp-page="./Index" class="btn btn-outline-dark">Back to List</a>
+        </div>
+        </div>
+   
+
+
+   
+
+

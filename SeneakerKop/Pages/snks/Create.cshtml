@@ -1,0 +1,48 @@
+﻿@page
+@model SeneakerKop.Pages.snks.CreateModel
+
+<h4>Sneaker</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Sneaker.ImageTitle" class="control-label"></label>
+                <input asp-for="Sneaker.ImageTitle" class="form-control" />
+                <span asp-validation-for="Sneaker.ImageTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sneaker.Name" class="control-label"></label>
+                <input asp-for="Sneaker.Name" class="form-control" />
+                <span asp-validation-for="Sneaker.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sneaker.Description" class="control-label"></label>
+                <input asp-for="Sneaker.Description" class="form-control" />
+                <span asp-validation-for="Sneaker.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sneaker.Price" class="control-label"></label>
+                <input asp-for="Sneaker.Price" class="form-control" />
+                <span asp-validation-for="Sneaker.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sneaker.Quantity" class="control-label"></label>
+                <input asp-for="Sneaker.Quantity" class="form-control" />
+                <span asp-validation-for="Sneaker.Quantity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary mt-3" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

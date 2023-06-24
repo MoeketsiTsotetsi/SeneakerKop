@@ -1,0 +1,37 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@{
+    if (SignInManager.IsSignedIn(User))
+    {
+        var user = await SignInManager.UserManager.GetUserAsync(User);
+        var roles = await UserManager.GetRolesAsync(user);
+
+        if (roles.Contains("Customer"))
+        {
+            <li class="nav-item">
+                <a class="nav-link text-danger" asp-area="" asp-page="/Privacy">Customer Option 1</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link text-danger" asp-area="" asp-page="/Privacy">Customer Option  2 </a>
+            </li>
+        }
+        else if (roles.Contains("Admin"))
+        {
+            <li class="nav-item">
+                <a class="nav-link text-danger" asp-area="" asp-page="/snks/Create">Create New Product</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link text-danger" asp-area="" asp-page="/Privacy">View All Orders </a>
+            </li>
+        }
+
+    }
+
+}
+
+
+
