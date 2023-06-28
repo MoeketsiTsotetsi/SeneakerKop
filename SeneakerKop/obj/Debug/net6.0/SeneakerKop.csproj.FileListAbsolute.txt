@@ -258,3 +258,4 @@ C:\Users\Moeketsi Tsotetsi\source\repos\SeneakerKop\SeneakerKop\obj\Debug\net6.0
 C:\Users\Moeketsi Tsotetsi\source\repos\SeneakerKop\SeneakerKop\bin\Debug\net6.0\Microsoft.Extensions.Configuration.dll
 C:\Users\Moeketsi Tsotetsi\source\repos\SeneakerKop\SeneakerKop\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Abstractions.dll
 C:\Users\Moeketsi Tsotetsi\source\repos\SeneakerKop\SeneakerKop\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
+C:\Users\Moeketsi Tsotetsi\source\repos\SeneakerKop\SeneakerKop\bin\Debug\net6.0\libman.json

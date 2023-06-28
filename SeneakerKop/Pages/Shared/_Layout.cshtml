@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿
+
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -7,13 +10,16 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/SeneakerKop.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/font-awesome/css/all.min.css" />
+
+
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-danger bg-black border-bottom box-shadow mb-3">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-page="/Index">SeneakerKop</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -23,7 +29,14 @@
                             <a class="nav-link text-danger" asp-area="" asp-page="/Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-danger " asp-area="" asp-page="/Privacy">Privacy</a>
+                            <a class="nav-link text-danger" asp-area="" asp-page="/Shop">Shop</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-danger " asp-area="" asp-page="/Info/Contact">Contact Us</a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link text-danger " asp-area="" asp-page="/Info/About">About Us</a>
                         </li>
                         <partial name="_DashboardPartial" />
                     </ul>
