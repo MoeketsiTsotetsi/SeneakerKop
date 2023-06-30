@@ -1,0 +1,19 @@
+﻿@page
+@model SeneakerKop.Pages.ProductDetailsModel
+@{
+    var qrt = Model.Sneaker.Quantity;
+}
+
+<div class="container">
+    <ul>
+    @for (int i=0;i<qrt;i++)
+    {
+        
+            <li>@i</li>
+       
+      
+    }
+
+    </ul>
+</div>
+

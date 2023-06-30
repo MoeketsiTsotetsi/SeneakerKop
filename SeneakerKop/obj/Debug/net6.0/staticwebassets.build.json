@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "2x3u3QR3ljuLXifTDyPWTSbdWfjtn102XlVIeQBausM=",
+  "Hash": "adgVa9wWBW7REHtSm2XEkne8unuDQNCKm4SeQws/uH0=",
   "Source": "SeneakerKop",
   "BasePath": "_content/SeneakerKop",
   "Mode": "Default",
@@ -1834,6 +1834,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\font-awesome\\webfonts\\fa-v4compatibility.woff2"
+    },
+    {
+      "Identity": "C:\\Users\\Moeketsi Tsotetsi\\source\\repos\\SeneakerKop\\SeneakerKop\\wwwroot\\images\\EpDpS0VW4AErWZE.jpg",
+      "SourceId": "SeneakerKop",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Moeketsi Tsotetsi\\source\\repos\\SeneakerKop\\SeneakerKop\\wwwroot\\",
+      "BasePath": "_content/SeneakerKop",
+      "RelativePath": "images/EpDpS0VW4AErWZE.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\EpDpS0VW4AErWZE.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Moeketsi Tsotetsi\\source\\repos\\SeneakerKop\\SeneakerKop\\wwwroot\\images\\pexels-aman-jakhar-2048548.ico",
+      "SourceId": "SeneakerKop",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Moeketsi Tsotetsi\\source\\repos\\SeneakerKop\\SeneakerKop\\wwwroot\\",
+      "BasePath": "_content/SeneakerKop",
+      "RelativePath": "images/pexels-aman-jakhar-2048548.ico",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\pexels-aman-jakhar-2048548.ico"
     },
     {
       "Identity": "C:\\Users\\Moeketsi Tsotetsi\\source\\repos\\SeneakerKop\\SeneakerKop\\wwwroot\\images\\pexels-aman-jakhar-2048548.jpg",

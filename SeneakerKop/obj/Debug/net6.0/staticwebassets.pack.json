@@ -185,6 +185,14 @@
       "PackagePath": "staticwebassets\\font-awesome\\webfonts\\fa-v4compatibility.woff2"
     },
     {
+      "Id": "C:\\Users\\Moeketsi Tsotetsi\\source\\repos\\SeneakerKop\\SeneakerKop\\wwwroot\\images\\EpDpS0VW4AErWZE.jpg",
+      "PackagePath": "staticwebassets\\images\\EpDpS0VW4AErWZE.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Moeketsi Tsotetsi\\source\\repos\\SeneakerKop\\SeneakerKop\\wwwroot\\images\\pexels-aman-jakhar-2048548.ico",
+      "PackagePath": "staticwebassets\\images\\pexels-aman-jakhar-2048548.ico"
+    },
+    {
       "Id": "C:\\Users\\Moeketsi Tsotetsi\\source\\repos\\SeneakerKop\\SeneakerKop\\wwwroot\\images\\pexels-aman-jakhar-2048548.jpg",
       "PackagePath": "staticwebassets\\images\\pexels-aman-jakhar-2048548.jpg"
     },
