@@ -12,6 +12,10 @@ namespace SeneakerKop.Pages
         private readonly ApplicationDbContext _context;
         [FromQuery(Name ="id")]
         private int Id { get; set; }
+        public int Quantity { get; set; }
+
+        [BindProperty(SupportsGet = true)]
+        public int SelectedQuantity { get; set; } = 1;
 
         public ProductDetailsModel(ApplicationDbContext context)
         {
@@ -36,6 +40,7 @@ namespace SeneakerKop.Pages
             else
             {
                 Sneaker = sneaker;
+                Quantity  = Sneaker.Quantity;
             }
             return Page();
         }

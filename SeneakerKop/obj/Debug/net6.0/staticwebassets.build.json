@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "adgVa9wWBW7REHtSm2XEkne8unuDQNCKm4SeQws/uH0=",
+  "Hash": "1YBs26aqCrdy57hUGQVa7XYI7Z0hiPY6oAg9rQmhn6k=",
   "Source": "SeneakerKop",
   "BasePath": "_content/SeneakerKop",
   "Mode": "Default",
@@ -1919,6 +1919,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\pexels-pixabay-267202.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Moeketsi Tsotetsi\\source\\repos\\SeneakerKop\\SeneakerKop\\wwwroot\\images\\s.jpg",
+      "SourceId": "SeneakerKop",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Moeketsi Tsotetsi\\source\\repos\\SeneakerKop\\SeneakerKop\\wwwroot\\",
+      "BasePath": "_content/SeneakerKop",
+      "RelativePath": "images/s.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\s.jpg"
     },
     {
       "Identity": "C:\\Users\\Moeketsi Tsotetsi\\source\\repos\\SeneakerKop\\SeneakerKop\\wwwroot\\js\\site.js",
