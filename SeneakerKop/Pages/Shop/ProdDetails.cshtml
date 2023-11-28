@@ -4,47 +4,38 @@
     var ImagePath = "~/images/" + Model.Sneaker.ImageTitle;
 }
 
-<form>
+<form asp-page-handler="AddToCart" method="post">
     <div class="text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card w-50 bg-black mb-3">
+                        <img src="@ImagePath" class="w-100 prodImage card-img-top" asp-append-version="true" />
 
-        <div class="card w-25 bg-black mb-3">
-            <img src=@ImagePath class="w-100 prodImage card-img-top" asp-append-version="true" />
-
-            <div class="card-body">
-                <p class="text-info">Name:@Model.Sneaker.Name</p>
-                <p class="text-info">Price : R @Model.Sneaker.Price</p>
-                <label for="quantity" class="form-label text-info">Quantity:</label>
-                <select asp-for="SelectedQuantity" class="w-25 mb-4">
-                    @for (int i = 1; i <= Model.Quantity; i++)
-                    {
-                        <option value="@i">@i</option>
-                    }
-                </select>
-                <br/>
-
-                <a class="btn btn-outline-danger" asp-area="" asp-page="">Add To Cart</a>
-
-
+                        <div class="card-body">
+                            <p class="text-info">Name: @Model.Sneaker.Name</p>
+                            <p class="text-info">Price: R @Model.Sneaker.Price</p>
+                            <label for="quantity" class="form-label text-info">Quantity:</label>
+                            <select name="selectedQuantity" class="w-25 mb-4">
+                                @for (int i = 1; i <= Model.Quantity; i++)
+                                {
+                                    <option value="@i">@i</option>
+                                }
+                            </select>
+                            <input type="hidden" name="sneakerId" value="@Model.Sneaker.Id" />
+                            <br />
+                            <button type="submit" class="btn btn-outline-danger">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="second-div">
+                        <h1 class="text-info text-center">Add This Kick To Your Cart</h1>
+                        <p class="text-center text-warning">If you want to add more kicks click below</p>
+                        <a class="btn btn-outline-info" asp-area="" asp-page="./Shop">Back To Products</a>
+                    </div>
+                </div>
             </div>
-           
-
         </div>
-        <div>
-            <p>klhskhslkhslskhlkdhlkdhlkdhdlkhdkldddlk</p>
-
-        </div>
-        
     </div>
-
-    
 </form>
-
-
-
-
-
-
-
-
-
-

@@ -28,4 +28,8 @@
     <None Include="Pages\Shop\ProdDetails.cshtml" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Pages\Cart\" />
+  </ItemGroup>
+
 </Project>

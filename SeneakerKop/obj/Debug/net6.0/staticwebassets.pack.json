@@ -209,6 +209,14 @@
       "PackagePath": "staticwebassets\\images\\s.jpg"
     },
     {
+      "Id": "C:\\Users\\Moeketsi Tsotetsi\\source\\repos\\SeneakerKop\\SeneakerKop\\wwwroot\\images\\sneakerlogo.png",
+      "PackagePath": "staticwebassets\\images\\sneakerlogo.png"
+    },
+    {
+      "Id": "C:\\Users\\Moeketsi Tsotetsi\\source\\repos\\SeneakerKop\\SeneakerKop\\wwwroot\\images\\sneakerlogoblue.png",
+      "PackagePath": "staticwebassets\\images\\sneakerlogoblue.png"
+    },
+    {
       "Id": "C:\\Users\\Moeketsi Tsotetsi\\source\\repos\\SeneakerKop\\SeneakerKop\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

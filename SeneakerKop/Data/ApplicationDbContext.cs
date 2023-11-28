@@ -10,8 +10,10 @@ namespace SeneakerKop.Data
         {
         }
 
-        public DbSet<ApplicationUser>ApplicationUser { get; set; }
+        public DbSet<ApplicationUser>? ApplicationUser { get; set; }
 
         public DbSet<SeneakerKop.Models.Sneaker>? Sneaker { get; set; }
+        public DbSet<SeneakerKop.Models.Cart>? Carts { get; set; }
+        
     }
 }

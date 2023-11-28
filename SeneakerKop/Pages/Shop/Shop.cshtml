@@ -2,29 +2,22 @@
 @model ShopModel;
 @{
 }
-
 <div class="row">
-    
-             
-                @foreach (var sneakers in Model.Sneakers)
-                {
+    @foreach (var sneakers in Model.Sneakers)
+    {
+        var ImagePath = "~/images/" + sneakers.ImageTitle;
+        <div class="col-6 mb-5">
+            <img src=@ImagePath class="w-100 prodImage card-img" asp-append-version="true" />
+            <div class="card-body text-center">
+                <h5 class="card-title text-danger">@sneakers.Name</h5>
+                <p class="card-text text-danger"> R @sneakers.Price</p>
 
-                    var ImagePath = "~/images/"+sneakers.ImageTitle;
-                    <div class="col-6 mb-5">
-
-                        <img src=@ImagePath class="w-100 prodImage card-img" asp-append-version="true" />
-                        <div class="card-body text-center">
-                            <h5 class="card-title text-danger">@sneakers.Name</h5>
-                            <p class="card-text text-info"> R @sneakers.Price</p>
-
-                <a asp-page="./ProdDetails" asp-route-id="@sneakers.Id" class="btn btn-outline-danger mt-1">Buy Sneaker</a>
-
-                        </div>
-
-                       
-
-                    </div>
-                }
-
+                <a class="btn btn-primary" asp-page="/Shop/ProdDetails" asp-route-sneakerId="@sneakers.Id">View Product Details</a>
+            </div>
+        </div>
+    }
 </div>
+
+
+
         

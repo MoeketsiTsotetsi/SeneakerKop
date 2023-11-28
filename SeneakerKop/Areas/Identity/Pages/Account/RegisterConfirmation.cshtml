@@ -4,7 +4,7 @@
     ViewData["Title"] = "Register confirmation";
 }
 
-<h1>@ViewData["Title"]</h1>
+<h1 class="text-center text-info mt-5">@ViewData["Title"]</h1>
 @{
     if (@Model.DisplayConfirmAccountLink)
     {
@@ -15,7 +15,7 @@
     }
     else
     {
-<p>
+<p class="text-center text-info">
         Please check your email to confirm your account.
 </p>
     }
