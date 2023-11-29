@@ -1,25 +1,27 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.SignalR.Protocol;
 using Microsoft.EntityFrameworkCore;
 using SeneakerKop.Data;
 using SeneakerKop.Models;
 using SeneakerKop.Services;
-using Microsoft.Extensions.Logging;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace SeneakerKop.Pages
 {
     public class ProductDetailsModel : PageModel
+
     {
         private readonly ApplicationDbContext _context;
         private readonly ICartService _cartService;
         private readonly ILogger<ProductDetailsModel> _logger;
-
+        
         public int Quantity { get; private set; }
 
+        [BindProperty]
         public int SelectedQuantity { get; set; } = 1;
         public Sneaker Sneaker { get; private set; } = default!;
+        public string CompletionMessage { get; private set; }
 
         public ProductDetailsModel(
             ApplicationDbContext context,
@@ -29,6 +31,7 @@ namespace SeneakerKop.Pages
             _context = context;
             _cartService = cartService;
             _logger = logger;
+            
         }
 
         public async Task<IActionResult> OnGetAsync(int? sneakerId)
@@ -50,37 +53,55 @@ namespace SeneakerKop.Pages
                 Sneaker = sneaker;
                 Quantity = Sneaker.Quantity;
             }
+            if (TempData.ContainsKey("CompletionMessage"))
+            {
+                CompletionMessage = TempData["CompletionMessage"] as string;
+            }
             return Page();
         }
 
 
-        [Authorize]
-        public IActionResult OnPostAddToCart(int sneakerId)
+        public async Task<IActionResult> OnPostAddToCart(int sneakerId)
         {
-            var selectedSneaker = _context.Sneaker.FirstOrDefault(s => s.Id == sneakerId);
-            var saleQuantity = SelectedQuantity;
-
-            if (selectedSneaker == null)
+            try
             {
-                _logger.LogError("Selected sneaker not found.");
-                return NotFound();
-            }
+                var selectedSneaker = await _context.Sneaker.FirstOrDefaultAsync(s => s.Id == sneakerId);
+                var saleQuantity = SelectedQuantity;
 
-            if (!User.Identity.IsAuthenticated)
+                if (selectedSneaker == null)
+                {
+                    _logger.LogError("Selected sneaker not found.");
+                    return NotFound();
+                }
+
+                if (!User.Identity.IsAuthenticated)
+                {
+                    // Redirect unauthenticated users to the login page
+                    return RedirectToPage("/Account/Login", new { area = "Identity" });
+                }
+
+                // If the user is authenticated, get the user ID
+                var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                var ProductName = selectedSneaker.Name;
+                var Price = selectedSneaker.Price;
+
+
+                // Use userId in your logic or store it in the cart
+                _cartService.AddItemToCart(userId, sneakerId, ProductName, Price, saleQuantity);
+               
+                TempData["CompletionMessage"] = "Item(s) added to cart successfully!";
+                return RedirectToPage("/Shop/ProdDetails", new { sneakerId });
+            }
+            catch (Exception ex)
             {
-                // Redirect or handle the case where user is not logged in
-                // For example, redirect to the login page
-                return RedirectToPage("/Account/Login", new { area = "Identity" });
+                // Log the exception or handle it as per your requirement
+                _logger.LogError(ex, "An error occurred while processing the request.");
 
-
+                // You can return an error page or a specific error message to the user
+                return RedirectToPage("/Error");
             }
-
-
-            _cartService.AddItemToCart("testid", sneakerId, saleQuantity);
-             return new JsonResult(new { SneakerName = selectedSneaker.Name, QuantityAdded = Quantity });
-            
-
-            
         }
+
+
     }
 }

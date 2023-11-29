@@ -9,7 +9,7 @@ namespace SeneakerKop.Services
         List<CartItem> GetCartItems();
         double GetTotalPrice();
         Cart GetCartByUserId(string userId);
-        void AddItemToCart(string userId, int sneakerId, int quantity);
+        void AddItemToCart(string userId, int sneakerId,string ProductName,double Price, int quantity);
         void RemoveItemFromCart(string userId, int sneakerId);
     }
 }

@@ -20,7 +20,7 @@ namespace SeneakerKop.Services
                 .FirstOrDefault(c => c.UserId == userId);
         }
 
-        public void AddItemToCart(string userId, int sneakerId, int quantity)
+        public void AddItemToCart(string userId, int sneakerId,string productName,double price, int quantity)
         {
             var cart = GetOrCreateCart(userId);
 
@@ -28,11 +28,11 @@ namespace SeneakerKop.Services
 
             if (cartItem == null)
             {
-                cart.CartItems.Add(new CartItem { SneakerId = (int)sneakerId, Quantity = quantity });
+                cart.CartItems.Add(new CartItem { SneakerId = (int)sneakerId, Quantity = quantity,ProductName=productName,Price=price});
             }
             else
             {
-                cartItem.Quantity += quantity;
+                cartItem.Quantity = quantity;
             }
 
             _dbContext.SaveChanges();

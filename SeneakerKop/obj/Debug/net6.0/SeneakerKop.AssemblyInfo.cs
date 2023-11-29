@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SeneakerKop")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+82a13171b5bde1fb1b6b096258df6b8fffcc80ae")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c5ccfef325edd2dec4eaa1ff6d5c5457e68e467f")]
 [assembly: System.Reflection.AssemblyProductAttribute("SeneakerKop")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SeneakerKop")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

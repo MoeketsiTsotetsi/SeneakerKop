@@ -16,7 +16,7 @@
                             <p class="text-info">Name: @Model.Sneaker.Name</p>
                             <p class="text-info">Price: R @Model.Sneaker.Price</p>
                             <label for="quantity" class="form-label text-info">Quantity:</label>
-                            <select name="selectedQuantity" class="w-25 mb-4">
+                            <select name="SelectedQuantity" class="w-25 mb-4" asp-for="SelectedQuantity">
                                 @for (int i = 1; i <= Model.Quantity; i++)
                                 {
                                     <option value="@i">@i</option>
@@ -39,3 +39,11 @@
         </div>
     </div>
 </form>
+
+@if (!string.IsNullOrEmpty(Model.CompletionMessage))
+{
+    <script>
+        // Display the completion message as an alert using JavaScript
+        alert('@Model.CompletionMessage');
+    </script>
+}
