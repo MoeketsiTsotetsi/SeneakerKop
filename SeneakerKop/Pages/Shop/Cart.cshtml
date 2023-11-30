@@ -1,0 +1,69 @@
+﻿@page 
+@model SeneakerKop.Pages.Shop.CartModel
+@{
+}
+
+
+
+<style>
+    /* Custom styles */
+    .custom-table {
+        background-color: #000000; /* Set a dark black background */
+        border: 1px solid; /* Add a border */
+        border-radius: 20px; /* Set border radius for more circular corners */
+    }
+
+    .custom-text-color {
+        color: #ff0000; /* Set a red text color */
+    }
+</style>
+
+<div class="container mt-5">
+    <table class="table table-bordered custom-table border border-danger">
+        <thead class="thead-dark">
+            <tr class="text-danger">
+                <th scope="col">Product Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Total</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody class="text-danger">
+            @if (Model != null && Model.Cart.CartItems != null)
+            {
+                @foreach (var item in Model.Cart.CartItems)
+                {
+                    <tr class="text-danger">
+                        <td>@item.ProductName</td>
+                        <td>@item.Price</td>
+                        <td>@item.Quantity</td>
+                        <td>@(item.Price * (int)item.Quantity)</td>
+                        <td>
+                            <form method="post">
+                                <input type="hidden" name="removeProductId" value="@item.SneakerId" />
+                                <button class="btn btn-danger w-100">Remove</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+
+                <!-- Calculate and display total sum -->
+                <tr class="text-danger">
+                    <td colspan="3"></td>
+                    <td class="font-weight-bold">Total Sum:</td>
+                    <td class="font-weight-bold">
+                       R @{
+                            double sum = Model.Cart.CartItems.Sum(item => item.Price * (int)item.Quantity);
+                            @sum
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+
+

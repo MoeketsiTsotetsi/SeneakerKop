@@ -8,6 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Pages\Cart\Cart.cshtml" />
+    <Content Remove="Pages\Cart\TestCart.cshtml" />
     <Content Remove="Pages\ProdDetails.cshtml" />
   </ItemGroup>
 
@@ -25,11 +27,22 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Pages\Shop\Cart.cshtml" />
+    <None Include="Pages\Cart\TestCart.cshtml" />
     <None Include="Pages\Shop\ProdDetails.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Pages\Cart\" />
+    <UpToDateCheckInput Remove="Pages\Cart\Cart.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Pages\Cart\Cart.cshtml" />
+    <_ContentIncludedByDefault Remove="Pages\Cart\TestCart.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Pages\Cart\TestCart.cshtml" />
   </ItemGroup>
 
 </Project>

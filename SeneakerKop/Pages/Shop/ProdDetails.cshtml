@@ -9,14 +9,18 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <div class="card w-50 bg-black mb-3">
+                    <div class="card bg-black mb-3" style="width: 65%; height:90vh">
                         <img src="@ImagePath" class="w-100 prodImage card-img-top" asp-append-version="true" />
 
-                        <div class="card-body">
-                            <p class="text-info">Name: @Model.Sneaker.Name</p>
-                            <p class="text-info">Price: R @Model.Sneaker.Price</p>
-                            <label for="quantity" class="form-label text-info">Quantity:</label>
-                            <select name="SelectedQuantity" class="w-25 mb-4" asp-for="SelectedQuantity">
+                        <div class="card-body" style="text-align: center;">
+                            <label for="name" class="form-label text-danger" style="font-weight: bold;">Product Name</label>
+                            <br />
+                            <p class="text-info" style="font-weight: bold;">@Model.Sneaker.Name</p>
+                            <label for="price" class="form-label text-danger" style="font-weight: bold;">Product Price</label>
+                            <p class="text-info" style="font-weight: bold;">R @Model.Sneaker.Price</p>
+                            <label for="quantity" class="form-label text-info" style="font-weight: bold;">Quantity:</label>
+                            <br />
+                            <select name="SelectedQuantity" class="w-25 mb-4" asp-for="SelectedQuantity" style="font-weight: bold;">
                                 @for (int i = 1; i <= Model.Quantity; i++)
                                 {
                                     <option value="@i">@i</option>
@@ -24,15 +28,17 @@
                             </select>
                             <input type="hidden" name="sneakerId" value="@Model.Sneaker.Id" />
                             <br />
-                            <button type="submit" class="btn btn-outline-danger">Add to Cart</button>
+                            <button type="submit" class="btn btn-outline-danger w-50">Add to Cart</button>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 d-flex align-items-center justify-content-center">
                     <div class="second-div">
                         <h1 class="text-info text-center">Add This Kick To Your Cart</h1>
                         <p class="text-center text-warning">If you want to add more kicks click below</p>
                         <a class="btn btn-outline-info" asp-area="" asp-page="./Shop">Back To Products</a>
+                        <h1 class="text-info text-center">View Your Cart</h1>
+                        <a class="btn btn-outline-success" asp-area="" asp-page="/">View Cart</a>
                     </div>
                 </div>
             </div>

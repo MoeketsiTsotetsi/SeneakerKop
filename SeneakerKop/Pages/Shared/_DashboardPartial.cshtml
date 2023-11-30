@@ -11,15 +11,17 @@
         if (roles.Contains("Customer"))
         {
             <li class="nav-item">
-                <a class="nav-link text-danger" asp-area="" asp-page="/Privacy">Customer 1</a>
+                <a class="nav-link text-danger" asp-area="" asp-page="/Shop/Cart"><i class="fa-sharp fa-solid fa-cart-shopping fa-beat"></i></a>
             </li>
-
             <li class="nav-item">
                 <a class="nav-link text-danger" asp-area="" asp-page="/Privacy">Customer 2 </a>
             </li>
         }
         else if (roles.Contains("Admin"))
         {
+            <li class="nav-item">
+                <a class="nav-link text-danger" asp-area="" asp-page="/Shop/Cart"><i class="fa-sharp fa-solid fa-cart-shopping fa-beat"></i></a>
+            </li>
             <li class="nav-item">
                 <a class="nav-link text-danger" asp-area="" asp-page="/snks/Create"><i class="fa fa-warehouse fa-lg"></i></a>
             </li>
