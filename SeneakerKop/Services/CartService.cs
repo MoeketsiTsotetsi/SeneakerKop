@@ -7,10 +7,12 @@ namespace SeneakerKop.Services
     public class CartService : ICartService
     {
         private readonly ApplicationDbContext _dbContext;
+        private readonly ILogger<CartService> _logger;
 
-        public CartService(ApplicationDbContext dbContext)
+        public CartService(ApplicationDbContext dbContext, ILogger<CartService> logger)
         {
             _dbContext = dbContext;
+            _logger = logger;
         }
 
         public Cart GetCartByUserId(string userId)
@@ -20,7 +22,7 @@ namespace SeneakerKop.Services
                 .FirstOrDefault(c => c.UserId == userId);
         }
 
-        public void AddItemToCart(string userId, int sneakerId,string productName,double price, int quantity)
+        public void AddItemToCart(string userId, int sneakerId,string productName,double price, int quantity,string image,int availableStock)
         {
             var cart = GetOrCreateCart(userId);
 
@@ -28,7 +30,7 @@ namespace SeneakerKop.Services
 
             if (cartItem == null)
             {
-                cart.CartItems.Add(new CartItem { SneakerId = (int)sneakerId, Quantity = quantity,ProductName=productName,Price=price});
+                cart.CartItems.Add(new CartItem { SneakerId = (int)sneakerId, Quantity = quantity,ProductName=productName,Price=price,Image=image,AvailableStock=availableStock});
             }
             else
             {
@@ -40,15 +42,30 @@ namespace SeneakerKop.Services
 
         public void UpdateCartItemQuantity(string userId, int sneakerId, int quantity)
         {
-            var cart = GetCartByUserId(userId);
-            var cartItem = cart?.CartItems.FirstOrDefault(item => item.SneakerId == sneakerId);
-
-            if (cartItem != null)
+            try
             {
-                cartItem.Quantity = quantity;
-                _dbContext.SaveChanges();
+                var cart = GetCartByUserId(userId);
+                var cartItem = cart?.CartItems.FirstOrDefault(item => item.SneakerId == sneakerId);
+
+                if (cartItem != null)
+                {
+                    cartItem.Quantity = quantity;
+                    _dbContext.SaveChanges();
+                }
+                else
+                {
+                    // Log a message indicating that the cart item was not found
+                    _logger.LogError($"Cart item with sneakerId {sneakerId} not found for user {userId}");
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log any exceptions that occur during the update process
+                _logger.LogError(ex, "Error updating cart item quantity");
+                throw; // Rethrow the exception to maintain the flow
             }
         }
+
 
         public void RemoveItemFromCart(string userId, int sneakerId)
         {

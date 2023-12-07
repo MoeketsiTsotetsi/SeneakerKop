@@ -8,9 +8,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="Pages\Cart\Cart.cshtml" />
-    <Content Remove="Pages\Cart\TestCart.cshtml" />
     <Content Remove="Pages\ProdDetails.cshtml" />
+    <Content Remove="Pages\Shop\Checkout.cshtml" />
+    <Content Remove="Pages\Shop\Payment.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -28,21 +28,22 @@
 
   <ItemGroup>
     <None Include="Pages\Shop\Cart.cshtml" />
-    <None Include="Pages\Cart\TestCart.cshtml" />
+    <None Include="Pages\Pay\Checkout.cshtml" />
+    <None Include="Pages\Shop\Payment.cshtml" />
     <None Include="Pages\Shop\ProdDetails.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
-    <UpToDateCheckInput Remove="Pages\Cart\Cart.cshtml" />
+    <UpToDateCheckInput Remove="Pages\Shop\Checkout.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
-    <_ContentIncludedByDefault Remove="Pages\Cart\Cart.cshtml" />
-    <_ContentIncludedByDefault Remove="Pages\Cart\TestCart.cshtml" />
+    <_ContentIncludedByDefault Remove="Pages\Shop\Checkout.cshtml" />
+    <_ContentIncludedByDefault Remove="Pages\Shop\Payment.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
-    <UpToDateCheckInput Remove="Pages\Cart\TestCart.cshtml" />
+    <UpToDateCheckInput Remove="Pages\Shop\Payment.cshtml" />
   </ItemGroup>
 
 </Project>

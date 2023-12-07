@@ -83,10 +83,12 @@ namespace SeneakerKop.Pages
                 var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
                 var ProductName = selectedSneaker.Name;
                 var Price = selectedSneaker.Price;
+                var Image = selectedSneaker.ImageTitle;
+                var availableStock = selectedSneaker.Quantity;
 
 
                 // Use userId in your logic or store it in the cart
-                _cartService.AddItemToCart(userId, sneakerId, ProductName, Price, saleQuantity);
+                _cartService.AddItemToCart(userId, sneakerId, ProductName, Price, saleQuantity,Image,availableStock);
                
                 TempData["CompletionMessage"] = "Item(s) added to cart successfully!";
                 return RedirectToPage("/Shop/ProdDetails", new { sneakerId });

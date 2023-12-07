@@ -24,39 +24,36 @@ namespace SeneakerKop.Pages.Shop
         public IActionResult OnGet()
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            _logger.LogInformation("On Get Ran");
 
             if (string.IsNullOrEmpty(userId))
             {
-               return NotFound();
+                return NotFound();
             }
 
             try
             {
                 var serviceCart = _cartService.GetCartByUserId(userId);
 
-                if (serviceCart != null)
+                if (serviceCart == null)
                 {
-                    RedirectToPage("/Shop/Shop");
-
+                    return RedirectToPage("/Shop/Shop");
                 }
 
+                _logger.LogInformation("Cart not null");
                 Cart = serviceCart;
-                
-
                 return Page();
-
-
             }
             catch (Exception ex)
             {
-                // Log or handle any exceptions that might occur during cart retrieval
                 Console.WriteLine($"Error retrieving cart: {ex.Message}");
                 return NotFound();
-
             }
         }
 
-        public   IActionResult OnPostRemoveItemFromCart(int removeProductId)
+
+
+        public IActionResult OnPostRemoveItemFromCart(int removeProductId)
         {
             try
             {
@@ -65,19 +62,64 @@ namespace SeneakerKop.Pages.Shop
                 if (itemSneakerId == 0 || userId == null)
                 {
                     _logger.LogError("Sneaker id was zero or the user id was null");
-                    _logger.LogError(userId);
-                    _logger.LogError(itemSneakerId.ToString());
                     return NotFound();
                 }
 
                 _cartService.RemoveItemFromCart(userId, itemSneakerId);
 
                 return RedirectToPage();
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 _logger.LogError(ex, "Could not remove Item from cart");
                 return NotFound();
             }
         }
+
+
+        public IActionResult OnPostCheckout(Dictionary<int, int> updatedQuantities)
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            _logger.LogInformation("Checkout pressed");
+
+
+            try
+            {
+                if (updatedQuantities != null && updatedQuantities.Count > 0)
+                {
+                    _logger.LogInformation("updated info fine");
+                    foreach (var (sneakerId, quantity) in updatedQuantities)
+                    {
+                        if (quantity > 0)
+                        {
+                            _cartService.UpdateCartItemQuantity(userId, sneakerId, quantity);
+                        }
+                        else
+                        {
+                            return NotFound("qUANTITY IS ZERO");
+                        }
+                    }
+                }
+                else
+                {
+                    return NotFound("Updates quantties error");
+                }
+
+                return RedirectToPage("/Pay/Checkout");
+
+
+
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "There was a problem updating quantity values");
+                return RedirectToPage("/");
+            }
+
+
+        }
+
     }
 }
+
