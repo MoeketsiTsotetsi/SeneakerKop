@@ -3,6 +3,7 @@ using SeneakerKop.Data;
 using Microsoft.AspNetCore.Identity;
 using SeneakerKop.Models;
 using SeneakerKop.Services;
+using Stripe;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,13 +23,7 @@ builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
 builder.Services.AddScoped<ICartService, CartService>();
 
-builder.Services.AddSession(options =>
-{
-    // Set session timeout and other options if needed
-    options.IdleTimeout = TimeSpan.FromMinutes(30); // Adjust timeout as per your requirement
-    options.Cookie.HttpOnly = true;
-    options.Cookie.IsEssential = true;
-});
+
 
 
 //builder.Services.AddSingleton<IEmailSender, EmailSender>();
@@ -58,6 +53,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+StripeConfiguration.ApiKey = builder.Configuration.GetSection("Stripe:SecKey").Get<string>();
 app.UseAuthentication();;
 
 app.UseAuthorization();

@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Pages\Pay\Success.cshtml" />
     <Content Remove="Pages\ProdDetails.cshtml" />
     <Content Remove="Pages\Shop\Checkout.cshtml" />
     <Content Remove="Pages\Shop\Payment.cshtml" />
@@ -24,9 +25,11 @@
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.14" />
+    <PackageReference Include="Stripe.net" Version="43.6.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Pages\Shop\Success.cshtml" />
     <None Include="Pages\Shop\Cart.cshtml" />
     <None Include="Pages\Pay\Checkout.cshtml" />
     <None Include="Pages\Shop\Payment.cshtml" />
@@ -38,12 +41,17 @@
   </ItemGroup>
 
   <ItemGroup>
+    <_ContentIncludedByDefault Remove="Pages\Pay\Success.cshtml" />
     <_ContentIncludedByDefault Remove="Pages\Shop\Checkout.cshtml" />
     <_ContentIncludedByDefault Remove="Pages\Shop\Payment.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
     <UpToDateCheckInput Remove="Pages\Shop\Payment.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Pages\Pay\Success.cshtml" />
   </ItemGroup>
 
 </Project>

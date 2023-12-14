@@ -34,7 +34,7 @@
                             <div class="col-md-8">
                                 <div class="card-body">
                                     <h5 class="card-title">@item.ProductName</h5>
-                                    <p class="card-text">Price: $@item.Price</p>
+                                    <p class="card-text">Price: R @item.Price</p>
                                     <div class="quantity-input">
                                         <button class="btn btn-sm btn-secondary quantity-btn" onclick="updateQuantity('@item.SneakerId', -1, @item.AvailableStock)">-</button>
                                         <input type="number" class="quantity-number" name="@item.SneakerId" value="@item.Quantity" min="1" max="@item.AvailableStock" onchange="updateQuantity('@item.SneakerId', this.value - @item.Quantity, @item.AvailableStock)" />
@@ -69,6 +69,7 @@
                         {
                             <input type="hidden" name="updatedQuantities[@item.SneakerId]" value="@item.Quantity" />
                         }
+
                         <button type="submit" class="btn btn-primary btn-block">Checkout</button>
                     </form>
 
@@ -77,8 +78,9 @@
         </div>
     </div>
 </div>
-<script>
 
+
+<script>
     function updateQuantity(productId, change, availableStock) {
         const quantityInput = document.querySelector(`input[name="${productId}"]`);
         let newQuantity = parseInt(quantityInput.value) + change;
@@ -93,9 +95,10 @@
         quantityInput.value = newQuantity;
 
         // Update the displayed total price for the item
-        const itemPrice = parseFloat(quantityInput.closest('.card-body').querySelector('.card-text').textContent.replace('Price: $', ''));
+        const itemPriceText = quantityInput.closest('.card-body').querySelector('.card-text').textContent;
+        const itemPrice = parseFloat(itemPriceText.split('R ')[1]);
         const newTotalPrice = itemPrice * newQuantity;
-        quantityInput.closest('.card-body').querySelector('.font-weight-bold').textContent = `Total: $${newTotalPrice}`;
+        quantityInput.closest('.card-body').querySelector('.font-weight-bold').textContent = `Total: R ${newTotalPrice}`;
 
         // Update hidden input value for updated quantity
         const updatedQuantityInput = document.querySelector(`input[name="updatedQuantities[${productId}]"]`);
@@ -105,7 +108,6 @@
         updateCartSummary();
     }
 
-
     function updateCartSummary() {
         let newTotalSum = 0;
 
@@ -113,9 +115,10 @@
         const cartItems = document.querySelectorAll('.card');
         cartItems.forEach(item => {
             const quantityInput = item.querySelector('.quantity-number');
-            const itemPriceElement = item.querySelector('.card-text');
-            if (quantityInput && itemPriceElement) {
-                const itemPrice = parseFloat(itemPriceElement.textContent.replace('Price: $', ''));
+            const itemPriceText = item.querySelector('.card-text').textContent;
+            const itemPrice = parseFloat(itemPriceText.split('R ')[1]);
+
+            if (quantityInput && !isNaN(itemPrice)) {
                 const newQuantity = parseInt(quantityInput.value);
                 const itemTotalPrice = itemPrice * newQuantity;
                 newTotalSum += itemTotalPrice;
@@ -131,13 +134,14 @@
         const summaryGrandTotal = document.querySelector('.cart-summary-grand-total');
 
         if (summaryTotal && summaryShipping && summaryGrandTotal) {
-            summaryTotal.textContent = `Total: $${newTotalSum}`;
-            summaryShipping.textContent = `Shipping: $${newShipping}`;
-            summaryGrandTotal.textContent = `Grand Total: $${newGrandTotal}`;
+            summaryTotal.textContent = `Total: R ${newTotalSum}`;
+            summaryShipping.textContent = `Shipping: R ${newShipping}`;
+            summaryGrandTotal.textContent = `Grand Total: R ${newGrandTotal}`;
         }
     }
-
 </script>
+
+
 
  
 

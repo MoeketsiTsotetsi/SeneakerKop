@@ -9,8 +9,9 @@
     <div class="card detailsContainer w-25" >
         <img src="@ImageTitle" class="card-img-top w-100 h-25" alt="...">
         <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <h5 class="card-title">@Model.Sneaker.Name</h5>
+            <p class="card-text">@Model.Sneaker.Description</p>
+        <p class="card-text"> R @Model.Sneaker.Price</p>
         </div>
         <div class="card-footer">
         <a asp-page="./Edit" asp-route-id="@Model.Sneaker?.Id" class="btn btn-outline-primary">Edit</a> |
